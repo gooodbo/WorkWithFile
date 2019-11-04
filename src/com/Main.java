@@ -34,7 +34,7 @@ public class Main {
             BufferedReader bufferedReader = new BufferedReader(
                     new InputStreamReader(
                             new FileInputStream(
-                                    "C:\\Users\\Avalakh\\Desktop\\voina-i-mir.txt"), StandardCharsets.UTF_8));
+                                   path), StandardCharsets.UTF_8));
             while ((s = bufferedReader.readLine()) != null) {
                 textFile = textFile + s + "\n";
             }
