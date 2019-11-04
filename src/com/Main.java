@@ -8,6 +8,19 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+
+/*
+1.      Сделать процесс скачивания романа из интернета автоматическим
+2.      Прочитать его из файла (используя на выбор один из классов для чтения байтовой информации, а потом один из классов для чтения текстовой информации).
+3.      Проанализировать его и записать в другой файл следующие результаты:
+- самое часто встречающееся слово
+- самое редко встречающееся слово
+- самое длинное слово
+
+*/
+
+
+
 public class Main {
     public static void main(String[] args) {
 
@@ -56,15 +69,8 @@ public class Main {
 
 
     public static String theRarestWord(String[] m) {
-        HashMap<String, Integer> h = new HashMap<>();
+        HashMap<String, Integer> h = makeMap(m);
 
-        for (int i = 0; i < m.length; i++) {
-            if (h.containsKey(m[i])) {
-                h.replace(m[i], h.get(m[i]) + 1);
-            } else {
-                h.put(m[i], 1);
-            }
-        }
         String wordRarest = "";
 
         int p1 = 0;
@@ -78,8 +84,7 @@ public class Main {
         return wordRarest;
     }
 
-
-    public static String theMostRepeatedWord(String[] m) {
+    public static HashMap<String, Integer> makeMap(String[] m) {
         HashMap<String, Integer> h = new HashMap<>();
 
         for (int i = 0; i < m.length; i++) {
@@ -89,6 +94,12 @@ public class Main {
                 h.put(m[i], 1);
             }
         }
+        return h;
+    }
+
+    public static String theMostRepeatedWord(String[] m) {
+        HashMap<String, Integer> h = makeMap(m);
+
 
         String wordMostRepeated = null;
         int p = 0;
